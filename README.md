@@ -15,5 +15,5 @@ Kijiji scraper. Users are able to input what they are searching for. Output is a
 
 #Pictures/Video
 
-![video](https://imgur.com/a/Hr0RnPm)
-![img](https://imgur.com/kFjgFOs)
+![video](https://i.imgur.com/yTvxNRF.mp4)
+![img](https://i.imgur.com/kFjgFOs.png)
