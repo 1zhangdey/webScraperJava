@@ -39,6 +39,16 @@ public class webScraper {
     }
 
     public static void printcompanies(ArrayList product) throws InterruptedException {
+         for (int i = 0; i <= 100; i++) {
+             char[] animationChars = new char[]{'|', '/', '-', '\\'};
+            System.out.print("Scraping: " + i + "% " + animationChars[i % 4] + "\r");
+
+            try {
+                Thread.sleep(75);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         for(int i = 0; i< product.size();i++){
             System.out.println(product.get(i) + " \n Link: ");
             Thread.sleep(200);
