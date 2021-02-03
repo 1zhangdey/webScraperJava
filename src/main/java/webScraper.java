@@ -12,29 +12,34 @@ public class webScraper {
     }
 
     public static void scraper() throws IOException, InterruptedException {
-        Document doc = Jsoup.connect("https://www.glassdoor.ca/Job/toronto-intern-jobs-SRCH_IL.0,7_IC2281069_KO8,14.htm").get();
-        Elements links = doc.getElementsByClass(" css-l2wjgv e1n63ojh0 jobLink");
+        System.out.println("What do you want to search for on Kijiji? (use dashs)");
+        Scanner in2 = new Scanner(System.in);
+        String choice = in2.next();
+        String url = "https://www.kijiji.ca/b-gta-greater-toronto-area/" + choice + "/k0l1700272?rb=true&dc=true";
+        Document doc = Jsoup.connect(url).get();
+        Elements product = doc.getElementsByClass("title");
+//
 
-        ArrayList<String> company = new ArrayList<String>();
+        ArrayList<String> productList = new ArrayList<String>();
 
-        for (Element link : links) {
-            company.add(link.text());
+        for (Element i:product) {
+            productList.add(i.text());
         }
-        System.out.println("There are " + company.size() + " companies hiring Interns right now!");
+        System.out.println("There are " + product.size() + " " + choice + " available for purchase right now!");
         Thread.sleep(1000);
-        System.out.println("Do you want to know all the companies hiring? (y/n)");
+        System.out.println("Do you want a list of all the products? (y/n)");
         Scanner in = new Scanner(System.in);
-        String choice = in.next();
-        if (choice.equalsIgnoreCase("y")){
-            printcompanies(company);
+        String choiceyn = in.next();
+        if (choiceyn.equalsIgnoreCase("y")){
+            printcompanies(product);
         }else{
             System.out.println("Thanks for your time!");
         }
     }
 
-    public static void printcompanies(ArrayList company) throws InterruptedException {
-        for(int i = 0; i< company.size();i++){
-            System.out.println("Company: " + company.get(i));
+    public static void printcompanies(ArrayList product) throws InterruptedException {
+        for(int i = 0; i< product.size();i++){
+            System.out.println(product.get(i) + " \n Link: ");
             Thread.sleep(200);
         }
     }
