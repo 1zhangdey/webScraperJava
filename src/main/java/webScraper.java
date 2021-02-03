@@ -17,7 +17,7 @@ public class webScraper {
         String choice = in2.next();
         String url = "https://www.kijiji.ca/b-gta-greater-toronto-area/" + choice + "/k0l1700272?rb=true&dc=true";
         Document doc = Jsoup.connect(url).get();
-        Elements product = doc.getElementsByClass("title");
+        Elements product = doc.getElementsByClass("title ");
 //
 
         ArrayList<String> productList = new ArrayList<String>();
@@ -25,7 +25,7 @@ public class webScraper {
         for (Element i:product) {
             productList.add(i.text());
         }
-        System.out.println("There are " + product.size() + " " + choice + " available for purchase right now!");
+        System.out.println("There are " + product.size() + " " + choice + "s available for purchase right now!");
         Thread.sleep(1000);
         System.out.println("Do you want a list of all the products? (y/n)");
         Scanner in = new Scanner(System.in);
@@ -34,6 +34,7 @@ public class webScraper {
             printcompanies(product);
         }else{
             System.out.println("Thanks for your time!");
+
         }
     }
 
