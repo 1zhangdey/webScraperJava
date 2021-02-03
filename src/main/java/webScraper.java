@@ -35,6 +35,7 @@ public class webScraper {
         System.out.println("There are " + product.size() + " " + choice + "s available for purchase right now!");
         Thread.sleep(1000);
         System.out.println("Do you want a list of all the products? (y/n)");
+        //only use y or n
         Scanner in = new Scanner(System.in);
         String choiceyn = in.next();
         if (choiceyn.equalsIgnoreCase("y")){
@@ -47,6 +48,7 @@ public class webScraper {
 
     public static void printcompanies(ArrayList product) throws InterruptedException {
          for (int i = 0; i <= 100; i++) {
+             //loading animation
              char[] animationChars = new char[]{'|', '/', '-', '\\'};
             System.out.print("Scraping: " + i + "% " + animationChars[i % 4] + "\r");
 
